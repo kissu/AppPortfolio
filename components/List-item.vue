@@ -4,9 +4,9 @@
       :class="{ active: isActive }"
       @click="toggle"
     >
-      <h2 class="title">
+      <a class="title">
         <slot name="title" />
-      </h2>
+      </a>
 
       <div v-show="show" :class="{ active: isActive }" class="content">
         <slot name="content" />
@@ -30,6 +30,7 @@ export default {
     },
     toggle () {
       // this.show = !this.show
+      console.log('ping')
       this.isActive = !this.isActive
     }
   }
