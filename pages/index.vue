@@ -1,20 +1,25 @@
 <template>
   <div class="container">
-    <div v-for="accordion in accordions" :key="accordion.title" class="l">
-      <Item>
-        <template #title>
-          {{ accordion.title }}
-        </template>
+    <div v-for="(color, index) in colors" :key="color.test">
+      {{ color.test }} {{ index }}
 
-        <template #content>
-          <div>{{ accordion.text }}</div>
-        </template>
-      </Item>
+      <div v-for="accordion in accordions" :key="accordion.title" class="l" :style=" color.test">
+        <Item>
+          <template #title>
+            {{ accordion.title }}
+          </template>
+
+          <template #content>
+            <div>{{ accordion.text }}</div>
+          </template>
+        </Item>
+      </div>
+      <!-- here goes R -->
+      <div class="r">
+        <p> contenu pour R</p>
+      </div>
     </div>
-    <!-- here goes R -->
-    <div class="r">
-      <p> contenu pour R</p>
-    </div>
+  </div>
   </div>
 </template>
 <script>
@@ -36,7 +41,12 @@ export default {
           title: 'Il danse',
           text: 'Projects from il danse !'
         }
+      ],
+      colors: [
+        { test: 'color: red' },
+        { test: 'color: orange' }
       ]
+
     }
   }
 
